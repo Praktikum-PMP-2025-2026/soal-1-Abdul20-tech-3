@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct Pasien{
     char nama[50];
@@ -17,11 +18,27 @@ typedef struct Pasien{
     struct Pasien *next;
 }Pasien;
 
+typedef struct{
+    Pasien *head;
+    Pasien *tail;
+}Queue;
+
+void init_queue(Queue *q){
+    q->head = NULL;
+    q->tail = NULL;
+}
+
+// bool enqueue(Queue *q, Pasien *orang){
+//     Pasien * newnode = malloc(sizeof(Pasien));
+//     newnode->;
+// }
+
 void tampilkanPasien(int N, Pasien *orang){
     printf("ORDER ");
-    for (int i = 0; i < N; i++){
+    for (int i = 0; i < N-1; i++){
         printf("%s ", orang[i].nama);
     }
+    printf("%s", orang[N-1].nama);
     printf("\n");
 }
 
